@@ -1,0 +1,152 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f7f7f5;
+  color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+main {
+  width: 100%;
+  max-width: 620px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  color: #888;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* ── Drop zone ─────────────────────────────────────────── */
+
+.drop-zone {
+  border: 2px dashed #ccc;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+
+.drop-zone:hover,
+.drop-zone.drag-over {
+  border-color: #1a1a1a;
+  background: #f0f0ee;
+}
+
+.icon-upload {
+  width: 44px;
+  height: 44px;
+  color: #bbb;
+}
+
+.drop-zone p {
+  margin: 1rem 0 0.3rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.hint {
+  color: #999;
+  font-size: 0.875rem;
+}
+
+.browse-link {
+  color: #1a1a1a;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ── Result area ───────────────────────────────────────── */
+
+#preview {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  background: #e8e8e6; /* shows behind transparent images */
+  display: block;
+}
+
+/* ── Colour palette ────────────────────────────────────── */
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.swatch {
+  height: 80px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 7px;
+  transition: transform 0.15s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.swatch:hover {
+  transform: scale(1.06);
+}
+
+.swatch__label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: monospace;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.18);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+/* ── Reset button ──────────────────────────────────────── */
+
+.btn-reset {
+  background: none;
+  border: 1.5px solid #ccc;
+  color: #666;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-reset:hover {
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+/* ── Mobile ────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .palette {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

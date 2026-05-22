@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Palette Picker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <h1>Palette Picker</h1>
+    <p class="subtitle">Drop any image to extract its colours</p>
+
+    <!-- The upload area. Clicking it opens the file picker. -->
+    <!-- Dragging a file onto it also works — see app.js for the drag events. -->
+    <div class="drop-zone" id="dropZone">
+      <!-- Simple upload arrow icon, drawn with SVG (scalable, no image file needed) -->
+      <svg class="icon-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+      </svg>
+      <p>Drop an image here</p>
+      <span class="hint">or <span class="browse-link">browse your files</span></span>
+    </div>
+
+    <!-- Hidden file input. We trigger it from JavaScript when the drop zone is clicked. -->
+    <input type="file" id="fileInput" accept="image/*" hidden>
+
+    <!-- This whole section is hidden until the user loads an image. -->
+    <div id="result" hidden>
+      <img id="preview" alt="Uploaded image">
+
+      <!-- The colour swatches will be injected here by app.js -->
+      <div class="palette" id="palette"></div>
+
+      <button class="btn-reset" id="resetBtn">← Try another image</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
